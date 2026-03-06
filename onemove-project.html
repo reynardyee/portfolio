@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onemove - Reynard's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Reynard</a></div>
+            <ul>
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">Dark mode</button>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <!-- <div class="project-header">
+        <div class="container">
+            <h1>Onemove</h1>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </div> -->
+    <!-- Project Header -->
+    <div class="project-header project-header--onemove">
+        <div class="container">
+            <h1>OneMove NDP Project</h1>
+            <div class="project-header-links">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="project-header-github">View on GitHub</a>
+                <a href="index.html" class="back-link">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Content -->
+    <div class="project-content">
+        <div class="container">
+            <div class="project-details">
+                <h2>Project Overview</h2>
+                <p>
+                    For NDP’25, I collaborated closely with my peers to develop OneMove, a web and mobile event management platform designed to support large-scale event operations. The platform provides features such as real-time location tracking, logistics monitoring, schedule management, and coordination tools for different user groups. I contributed ideas and was responsible for designing and developing the UI/UX, ensuring the application was intuitive, accessible, and user-friendly for people of all ages.
+                </p>
+
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Live Location Tracking: Real-time tracking of personnel, vehicles, and equipment</li>
+                    <li>Event Status Dashboard: Monitor ongoing events, crowd density, and road conditions</li>
+                    <li>Logistics Management: Track props, equipment, and resources</li>
+                    <li>Ticket Management: Verify and track event tickets</li>
+                    <li>CET/TTX Integration: Manage Command Exercise Training (CET) and Table-Top Exercise (TTX) schedules</li>
+                    <li>Role-Based Access Control: Different access levels for users, admins, and super admins</li>
+                </ul>
+
+                <h2>Screenshots</h2>
+                <div class="slideshow-container">
+                    <div class="slideshow-slides">
+                        <!-- Replace image paths and alts with your Onemove screenshots -->
+                        <div class="slideshow-slide active">
+                            <img src="onemove-images/image-1.png" alt="Onemove screenshot 1">
+                        </div>
+                        <div class="slideshow-slide">
+                            <img src="onemove-images/image-2.png" alt="Onemove screenshot 2">
+                        </div>
+                        <div class="slideshow-slide">
+                            <img src="onemove-images/image-3.png" alt="Onemove screenshot 3">
+                        </div>
+                    </div>
+                    <button class="slideshow-btn slideshow-prev" aria-label="Previous">&#10094;</button>
+                    <button class="slideshow-btn slideshow-next" aria-label="Next">&#10095;</button>
+                    <div class="slideshow-dots"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const slides = document.querySelectorAll('.slideshow-slide');
+            const dotsContainer = document.querySelector('.slideshow-dots');
+            const prevBtn = document.querySelector('.slideshow-prev');
+            const nextBtn = document.querySelector('.slideshow-next');
+            let currentIndex = 0;
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = document.querySelectorAll('.slideshow-dot');
+
+            function goToSlide(index) {
+                slides[currentIndex].classList.remove('active');
+                dots[currentIndex].classList.remove('active');
+                currentIndex = (index + slides.length) % slides.length;
+                slides[currentIndex].classList.add('active');
+                dots[currentIndex].classList.add('active');
+            }
+
+            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            let autoplay = setInterval(() => goToSlide(currentIndex + 1), 4000);
+            document.querySelector('.slideshow-container').addEventListener('mouseenter', () => clearInterval(autoplay));
+            document.querySelector('.slideshow-container').addEventListener('mouseleave', () => {
+                autoplay = setInterval(() => goToSlide(currentIndex + 1), 4000);
+            });
+        })();
+    </script>
+</body>
+</html>
