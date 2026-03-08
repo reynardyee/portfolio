@@ -618,11 +618,19 @@ section {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+.slideshow-container--web {
+    max-width: 900px;
+}
+
 .slideshow-slides {
     position: relative;
     width: 100%;
     aspect-ratio: 9 / 19;
     background: #1a1a1a;
+}
+
+.slideshow-container--web .slideshow-slides {
+    aspect-ratio: 16 / 9;
 }
 
 .slideshow-slide {
@@ -699,6 +707,14 @@ section {
 
 .slideshow-dot:hover {
     background: #999;
+}
+
+.slideshow-caption {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin: -0.75rem auto 2.5rem;
+    max-width: 900px;
 }
 
 /* Project page responsive */
